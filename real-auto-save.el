@@ -73,8 +73,8 @@
 (defun real-auto-save-start-timer ()
   "Start real-auto-save-timer."
   (setq real-auto-save-timer
-        (run-at-time
-         (time-add (current-time) (seconds-to-time real-auto-save-interval))
+        (run-with-idle-timer
+         (seconds-to-time real-auto-save-interval)
          real-auto-save-interval 'real-auto-save-buffers)))
 
 (defun real-auto-save-restart-timer ()
